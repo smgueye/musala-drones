@@ -41,9 +41,9 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
     this.code = code;
     this.drone = drone;
 
-    logger.debug("weigth = " + this.weight);
-
-    if (!drone.canAddMedication(this.weight))
+    boolean isOverWeighted = drone.isOverWeighted(this.weight);
+    boolean hasNotSufficientBattery = drone.getBattery() < 25;
+    if (isOverWeighted || hasNotSufficientBattery)
       throw new Exception("Enable to load medication due to drone overload");
     this.validateSelf();
   }
