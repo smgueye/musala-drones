@@ -36,11 +36,11 @@ public class Drone {
     return new Drone(id, serialNumber, model, weight, battery, state, medicationList);
   }
 
-  public boolean canAddMedication(Integer newWeight) {
+  public boolean isOverWeighted(Integer newWeight) {
     int totalMedicationWeight = newWeight;
     for (Medication medication : medicationList) {
       totalMedicationWeight += medication.getWeight();
     }
-    return totalMedicationWeight <= weight;
+    return totalMedicationWeight > weight;
   }
 }
