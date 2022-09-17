@@ -1,5 +1,6 @@
 package com.smgueye.drones.application.port.in;
 
+import com.smgueye.drones.adapters.out.persistence.DroneState;
 import com.smgueye.drones.common.SelfValidating;
 import com.smgueye.drones.domain.Drone;
 import lombok.EqualsAndHashCode;
@@ -28,7 +29,7 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
   Integer weight;
 
   @NotNull
-  @Pattern(regexp = "^[A-Z0-9_]+$")
+  @Pattern(regexp = "^[A-Z0-9-_]+$")
   String code;
 
   @NotNull
@@ -45,6 +46,10 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
     boolean hasNotSufficientBattery = drone.getBattery() < 25;
     if (isOverWeighted || hasNotSufficientBattery)
       throw new Exception("Enable to load medication due to drone overload");
+
+    boolean isNotAvailable = drone.getState() != DroneState.LOADING;
+    if (isNotAvailable)
+      throw new Exception("Enable to load medication due to drone activity");
     this.validateSelf();
   }
 }
