@@ -1,6 +1,6 @@
 package com.smgueye.drones.adapters.in.web;
 
-import com.smgueye.drones.application.port.in.CheckDroneMedicationsUseCase;
+import com.smgueye.drones.application.port.in.CheckDeliveryUseCase;
 import com.smgueye.drones.common.WebAdapter;
 import com.smgueye.drones.domain.Drone;
 import com.smgueye.drones.domain.Medication;
@@ -16,10 +16,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CheckDeliveryController {
 
-  private final CheckDroneMedicationsUseCase checkDroneMedicationsUseCase;
+  private final CheckDeliveryUseCase checkDeliveryUseCase;
 
   @GetMapping(path = "/api/v1/drones/{droneId}/medications")
   List<Medication> getAllMedicationsByDroneId(@PathVariable Long droneId) {
-    return checkDroneMedicationsUseCase.getAllMedications(droneId);
+    return checkDeliveryUseCase.getAllMedications(droneId);
+  }
+
+  @GetMapping(path = "/api/v1/drones/available")
+  List<Drone> getAllAvailableDrones() {
+    return checkDeliveryUseCase.getAllAvailableDrones();
   }
 }

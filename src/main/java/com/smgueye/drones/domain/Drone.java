@@ -1,5 +1,6 @@
 package com.smgueye.drones.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smgueye.drones.adapters.out.persistence.DroneModel;
 import com.smgueye.drones.adapters.out.persistence.DroneState;
 import lombok.AccessLevel;
@@ -22,7 +23,9 @@ public class Drone {
 
   @Getter private final DroneState state;
 
-  @Getter private final ArrayList<Medication> medicationList;
+  @Getter
+  @JsonIgnore
+  private final ArrayList<Medication> medicationList;
 
   public static Drone withId(
     Long id,

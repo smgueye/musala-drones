@@ -47,9 +47,11 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
     if (isOverWeighted || hasNotSufficientBattery)
       throw new Exception("Enable to load medication due to drone overload");
 
-    boolean isNotAvailable = drone.getState() != DroneState.LOADING;
+    /*boolean isDroneLoading = drone.getState() != DroneState.LOADING;
+    boolean isDroneIdle = drone.getState() != DroneState.IDLE;
+    boolean isNotAvailable = !isDroneLoading || !isDroneIdle;
     if (isNotAvailable)
-      throw new Exception("Enable to load medication due to drone activity");
+      throw new Exception("Enable to load medication due to drone activity");*/
     this.validateSelf();
   }
 }
