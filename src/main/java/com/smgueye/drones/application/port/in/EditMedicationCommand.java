@@ -3,6 +3,7 @@ package com.smgueye.drones.application.port.in;
 import com.smgueye.drones.adapters.out.persistence.DroneState;
 import com.smgueye.drones.common.SelfValidating;
 import com.smgueye.drones.domain.Drone;
+import com.smgueye.drones.exceptions.EntityException;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 import org.slf4j.Logger;
@@ -45,13 +46,13 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
     boolean isOverWeighted = drone.isOverWeighted(this.weight);
     boolean hasNotSufficientBattery = drone.getBattery() < 25;
     if (isOverWeighted || hasNotSufficientBattery)
-      throw new Exception("Enable to load medication due to drone overload");
+      throw new EntityException("Enable to load medication due to drone overload");
 
-    /*boolean isDroneLoading = drone.getState() != DroneState.LOADING;
+    boolean isDroneLoading = drone.getState() != DroneState.LOADING;
     boolean isDroneIdle = drone.getState() != DroneState.IDLE;
     boolean isNotAvailable = !isDroneLoading || !isDroneIdle;
     if (isNotAvailable)
-      throw new Exception("Enable to load medication due to drone activity");*/
+      throw new EntityException("Enable to load medication due to drone activity");
     this.validateSelf();
   }
 }
