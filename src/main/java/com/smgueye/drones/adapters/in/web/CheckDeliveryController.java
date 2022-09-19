@@ -35,8 +35,8 @@ public class CheckDeliveryController {
   @GetMapping(path = "/api/v1/drones/{droneId}/battery-level")
   ResponseEntity<Object> getBatteryLevelByDroneId(@PathVariable Long droneId) {
     Integer batteryLevel = checkDeliveryUseCase.getBatteryLevel(droneId);
-    Map<String, Integer> response = new HashMap<>();
-    response.put("battery", batteryLevel);
-    return new ResponseEntity<Object>(batteryLevel, HttpStatus.OK);
+    Map<String, String> responseData = new HashMap<>();
+    responseData.put("battery", String.format("%d%%", batteryLevel));
+    return new ResponseEntity<>(responseData, HttpStatus.OK);
   }
 }

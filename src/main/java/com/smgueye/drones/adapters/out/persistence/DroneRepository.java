@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface DroneRepository extends JpaRepository<DroneJpaEntity, Long> {
-  @Query(value = "SELECT drone FROM DroneJpaEntity drone WHERE drone.state = 1")
+  @Query(value = "SELECT drone FROM DroneJpaEntity drone WHERE drone.state = 1 AND drone.battery >= 25")
   List<DroneJpaEntity> findAllAvailableDrones();
 }
