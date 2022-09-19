@@ -24,6 +24,7 @@ public class LoadMedicationController {
       request.getName(),
       request.getWeight(),
       request.getCode(),
+      request.getImageUrl(),
       drone);
     return loadMedicationUseCase.loadIntoDrone(command);
   }
