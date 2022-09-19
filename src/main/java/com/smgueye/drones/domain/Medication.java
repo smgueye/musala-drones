@@ -1,5 +1,6 @@
 package com.smgueye.drones.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,7 @@ public class Medication {
 
   @Getter private final String code;
 
+  @JsonIgnore
   @Getter private final Long droneId;
 
   public static Medication withId(
