@@ -32,6 +32,6 @@ public class DroneJpaEntity {
   @Enumerated(EnumType.ORDINAL)
   private DroneState state;
 
-  @OneToMany(mappedBy = "drone")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "drone")
   private List<MedicationJpaEntity> medications;
 }

@@ -10,5 +10,7 @@ public interface CheckDeliveryUseCase {
 
   List<Drone> getAllAvailableDrones();
 
+  List<Drone> getAllDrones();
+
   Integer getBatteryLevel(Long droneId);
 }
