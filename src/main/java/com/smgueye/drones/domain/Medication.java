@@ -15,12 +15,14 @@ public class Medication {
 
   @Getter private final String code;
 
+  @Getter private final String imageUrl;
+
   @JsonIgnore
   @Getter private final Long droneId;
 
   public static Medication withId(
-    Long id, String name, Integer weight, String code, Long droneId
+    Long id, String name, Integer weight, String code, String imageUrl, Long droneId
   ) {
-    return new Medication(id, name, weight, code, droneId);
+    return new Medication(id, name, weight, code, imageUrl, droneId);
   }
 }

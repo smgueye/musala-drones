@@ -61,7 +61,7 @@ public class DronePersistenceAdapter implements
       command.getName(),
       command.getWeight(),
       command.getCode(),
-      null,
+      command.getImageUrl(),
       drone));
     return mapper.mapMedicationToEntity(entity);
   }

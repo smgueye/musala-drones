@@ -34,13 +34,17 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
   String code;
 
   @NotNull
+  String imageUrl;
+
+  @NotNull
   Drone drone;
 
-  public EditMedicationCommand(Integer id, String name, Integer weight, String code, Drone drone) throws Exception {
+  public EditMedicationCommand(Integer id, String name, Integer weight, String code, String imageUrl, Drone drone) throws Exception {
     this.id = id;
     this.name = name;
     this.weight = weight;
     this.code = code;
+    this.imageUrl = imageUrl;
     this.drone = drone;
 
     boolean isOverWeighted = drone.isOverWeighted(this.weight);

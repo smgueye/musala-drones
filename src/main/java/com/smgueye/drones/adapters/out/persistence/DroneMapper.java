@@ -24,6 +24,7 @@ public class DroneMapper {
           medication.getName(),
           medication.getWeight(),
           medication.getCode(),
+          medication.getImageUrl(),
           medication.getDrone().getId()));
       }
     }
@@ -45,6 +46,7 @@ public class DroneMapper {
       medication.getName(),
       medication.getWeight(),
       medication.getCode(),
+      medication.getImageUrl(),
       medication.getDrone().getId());
   }
 }
