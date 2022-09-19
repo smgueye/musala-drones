@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 public class EntityNotFoundException extends RuntimeException {
   public EntityNotFoundException(Class clazz, String... searchParamsMap) {
-    super(EntityNotFoundException.generateMessage(clazz.getSimpleName(), toMap(String.class, String.class, searchParamsMap)));
+    super(EntityNotFoundException.generateMessage(clazz.getSimpleName(), toMap(String.class, String.class)));
   }
 
   private static String generateMessage(String entity, Map<String, String> searchParams) {
