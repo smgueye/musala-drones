@@ -14,12 +14,8 @@ import org.springframework.beans.factory.annotation.Value;
 @UseCase
 public class DroneRegistrationService implements DroneRegistrationUseCase {
 
-<<<<<<< HEAD
   @Value("${drones.max-drone-number}")
   private Integer MAX_DRONE_NUMBER;
-=======
-  @Value("${drones.max-drone-number}") private Integer MAX_DRONE_NUMBER;
->>>>>>> 14875cc (feat(drone-registration): Drone Registration\n)
 
   private final DroneRegistrationPort droneRegistrationPort;
   private final DroneQueryPort droneQueryPort;
