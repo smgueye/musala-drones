@@ -9,5 +9,6 @@ public class LoadMedicationRequest {
   private final String name;
   private final Integer weight;
   private final String code;
+  private final String imageUrl;
   private final Long droneId;
 }

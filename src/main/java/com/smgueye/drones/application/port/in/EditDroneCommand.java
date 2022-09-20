@@ -3,6 +3,7 @@ package com.smgueye.drones.application.port.in;
 import com.smgueye.drones.adapters.out.persistence.DroneModel;
 import com.smgueye.drones.adapters.out.persistence.DroneState;
 import com.smgueye.drones.common.SelfValidating;
+import com.smgueye.drones.exceptions.EntityException;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
@@ -51,6 +52,10 @@ public class EditDroneCommand extends SelfValidating<EditDroneCommand> {
     this.weight = weight;
     this.battery = battery;
     this.state = state;
+
+    if (battery < 25 && state != DroneState.IDLE)
+      throw new EntityException("Drone with a battery level under 25% must be in IDLE state.");
+
     this.validateSelf();
   }
 }

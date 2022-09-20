@@ -21,10 +21,11 @@ public class LoadMedicationController {
   Medication loadMedication(@RequestBody LoadMedicationRequest request) throws Exception {
     Drone drone = loadMedicationUseCase.getDrone(request.getDroneId());
     EditMedicationCommand command = new EditMedicationCommand(null,
-      request.getName(),
-      request.getWeight(),
-      request.getCode(),
-      drone);
+        request.getName(),
+        request.getWeight(),
+        request.getCode(),
+        request.getImageUrl(),
+        drone);
     return loadMedicationUseCase.loadIntoDrone(command);
   }
 }

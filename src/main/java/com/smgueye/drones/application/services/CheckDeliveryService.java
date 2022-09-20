@@ -26,9 +26,14 @@ public class CheckDeliveryService implements CheckDeliveryUseCase {
   }
 
   @Override
+  public List<Drone> getAllDrones() {
+    return droneQueryPort.getAllDrones();
+  }
+
+  @Override
   public Integer getBatteryLevel(Long droneId) {
     return droneQueryPort
-      .getDroneById(droneId)
-      .getBattery();
+        .getDroneById(droneId)
+        .getBattery();
   }
 }

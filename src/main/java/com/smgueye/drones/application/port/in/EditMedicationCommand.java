@@ -34,25 +34,28 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
   String code;
 
   @NotNull
+  String imageUrl;
+
+  @NotNull
   Drone drone;
 
-  public EditMedicationCommand(Integer id, String name, Integer weight, String code, Drone drone) throws Exception {
+  public EditMedicationCommand(Integer id, String name, Integer weight, String code, String imageUrl, Drone drone)
+      throws Exception {
     this.id = id;
     this.name = name;
     this.weight = weight;
     this.code = code;
+    this.imageUrl = imageUrl;
     this.drone = drone;
 
     boolean isOverWeighted = drone.isOverWeighted(this.weight);
     boolean hasNotSufficientBattery = drone.getBattery() < 25;
     if (isOverWeighted || hasNotSufficientBattery)
-      throw new EntityException("Enable to load medication due to drone overload");
+      throw new EntityException("Unable to load medication due to drone overload");
 
-    boolean isDroneLoading = drone.getState() != DroneState.LOADING;
-    boolean isDroneIdle = drone.getState() != DroneState.IDLE;
-    boolean isNotAvailable = !isDroneLoading || !isDroneIdle;
+    boolean isNotAvailable = drone.getState() != DroneState.LOADING;
     if (isNotAvailable)
-      throw new EntityException("Enable to load medication due to drone activity");
+      throw new EntityException("Unable to load medication due to drone availability");
     this.validateSelf();
   }
 }
