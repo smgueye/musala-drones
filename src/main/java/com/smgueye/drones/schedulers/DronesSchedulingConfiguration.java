@@ -1,4 +1,4 @@
-package com.smgueye.drones;
+package com.smgueye.drones.schedulers;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
