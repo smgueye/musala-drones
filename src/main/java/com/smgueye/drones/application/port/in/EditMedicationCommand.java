@@ -39,8 +39,12 @@ public class EditMedicationCommand extends SelfValidating<EditMedicationCommand>
   @NotNull
   Drone drone;
 
+<<<<<<< HEAD
   public EditMedicationCommand(Integer id, String name, Integer weight, String code, String imageUrl, Drone drone)
       throws Exception {
+=======
+  public EditMedicationCommand(Integer id, String name, Integer weight, String code, String imageUrl, Drone drone) throws Exception {
+>>>>>>> 219364a (fix(medication-load): Add medication\n)
     this.id = id;
     this.name = name;
     this.weight = weight;

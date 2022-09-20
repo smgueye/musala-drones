@@ -23,6 +23,8 @@ public class Medication {
   @Getter
   private final String imageUrl;
 
+  @Getter private final String imageUrl;
+
   @JsonIgnore
   @Getter
   private final Long droneId;
@@ -32,7 +34,12 @@ public class Medication {
 >>>>>>> 5757f89 (feat(delivery-check): Delivery\n)
 
   public static Medication withId(
+<<<<<<< HEAD
       Long id, String name, Integer weight, String code, String imageUrl, Long droneId) {
+=======
+    Long id, String name, Integer weight, String code, String imageUrl, Long droneId
+  ) {
+>>>>>>> 219364a (fix(medication-load): Add medication\n)
     return new Medication(id, name, weight, code, imageUrl, droneId);
   }
 }
