@@ -19,12 +19,17 @@ public class Medication {
   @Getter
   private final String code;
 
+<<<<<<< HEAD
   @Getter
   private final String imageUrl;
 
   @JsonIgnore
   @Getter
   private final Long droneId;
+=======
+  @JsonIgnore
+  @Getter private final Long droneId;
+>>>>>>> 5757f89 (feat(delivery-check): Delivery\n)
 
   public static Medication withId(
       Long id, String name, Integer weight, String code, String imageUrl, Long droneId) {
